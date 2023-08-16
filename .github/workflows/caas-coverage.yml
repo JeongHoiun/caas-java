@@ -41,5 +41,5 @@ jobs:
       with:
         message: |
           Complete to calculate coverage :wave:
-          ![Coverage](https://app.cloudscroll.io/a/)
+          [Confirm to Coverage](https://app.cloudscroll.io/a/)
         reactions: eyes, rocket

@@ -16,7 +16,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    env:
+      CAAS_CONFIG_PATH: $(pwd)/coverage/certificate-key.caas
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 17
@@ -25,10 +26,6 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
-    - name: Regist CaaS env variable
-      run: export CAAS_CONFIG_PATH=/home/runner/.caas/certificate-key.caas
     - name: Verify CaaS env variable
       run: echo $CAAS_CONFIG_PATH
     - name: Install CaaS maven Plugin

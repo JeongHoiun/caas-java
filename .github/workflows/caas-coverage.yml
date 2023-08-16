@@ -27,13 +27,13 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Show current path
+    - name: Make caas config directory
       run: mkdir /home/runner/.caas
     - name: Regist CaaS env variable
       run: mv $(pwd)/coverage/certificate-key.caas /home/runner/.caas/certificate-key.caas
     - name: Install CaaS maven Plugin
       run : mvn install:install-file -Dfile="./coverage/jacov-maven-plugin.jar" -DgroupId=com.qualityscroll.caas -DartifactId=jacov-maven-plugin -Dpackaging="jar" -Dversion="1.0.0-SNAPSHOT"
     - name: Run CaaS build
-      run: mvn clean source:jar com.qualityscroll.caas:jacov-maven-plugin:1.0.0-SNAPSHOT:setup compile package
+      run: mvn clean source:jar com.qualityscroll.caas:jacov-maven-plugin:1.0.0-SNAPSHOT:setup compile package -DskipTests
     - name: Run coverage built target
       run: java -jar -javaagent:coverage/java-runtime.jar target/helloworld-1.1.jar

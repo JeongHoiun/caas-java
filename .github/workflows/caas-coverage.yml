@@ -28,7 +28,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Show current path
-      run: pwd && ls -al
+      run: mkdir /home/runner/.caas
     - name: Regist CaaS env variable
       run: mv $(pwd)/coverage/certificate-key.caas /home/runner/.caas/certificate-key.caas
     - name: Install CaaS maven Plugin

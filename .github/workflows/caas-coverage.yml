@@ -17,7 +17,8 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      CAAS_CONFIG_PATH: $(pwd)/coverage/certificate-key.caas
+      CAAS_CONFIG_PATH: ${{ github.workspace }}/coverage/certificate-key.caas
+
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 17

@@ -35,8 +35,8 @@ jobs:
       run: mvn clean source:jar com.qualityscroll.caas:jacov-maven-plugin:1.0.0-SNAPSHOT:setup compile package -DskipTests
     - name: Run coverage built target
       run: java -jar -javaagent:coverage/java-runtime.jar target/helloworld-1.1.jar
-    - name: Comment PR
-      uses: thollander/actions-comment-pull-request@v2
+    - name: Comment Pull Request
+      uses: thollander/actions-comment-pull-request@v2.4.2
       with:
         message: |
           Complete to calculate coverage :wave:

@@ -28,11 +28,11 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Show current path
-      run: pwd
+      run: pwd && ls -al
     - name: Regist CaaS env variable
       run: export CAAS_CONFIG_PATH=./coverage/certificate-key.caas
     - name: Install CaaS maven Plugin
-      run : mvn install:install-file -Dfile="jacov-maven-plugin.jar" -DgroupId=com.qualityscroll.caas -DartifactId=jacov-maven-plugin -Dpackaging="jar" -Dversion="1.0.0-SNAPSHOT"
+      run : mvn install:install-file -Dfile="./coverage/jacov-maven-plugin.jar" -DgroupId=com.qualityscroll.caas -DartifactId=jacov-maven-plugin -Dpackaging="jar" -Dversion="1.0.0-SNAPSHOT"
     - name: Run CaaS
       run: mvn clean source:jar com.qualityscroll.caas:jacov-maven-plugin:1.0.0-SNAPSHOT:setup compile package
     - name: Run coverage built target

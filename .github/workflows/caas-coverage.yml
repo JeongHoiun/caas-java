@@ -9,7 +9,7 @@
 name: Java CI with Maven
 
 on:
-  push:
+  pull_request:
     branches: [ "feature/github-workflow-create" ]
 
 jobs:
@@ -35,3 +35,10 @@ jobs:
       run: mvn clean source:jar com.qualityscroll.caas:jacov-maven-plugin:1.0.0-SNAPSHOT:setup compile package -DskipTests
     - name: Run coverage built target
       run: java -jar -javaagent:coverage/java-runtime.jar target/helloworld-1.1.jar
+    - name: Comment PR
+      uses: thollander/actions-comment-pull-request@v2
+      with:
+        message: |
+          Complete to calculate coverage :wave:
+          ![Coverage](https://app.cloudscroll.io/a/)
+        reactions: eyes, rocket

@@ -42,22 +42,7 @@
          </manifest>
         </archive>
        </configuration>
-      </plugin>        
-      <plugin>
-       <artifactId>maven-surefire-plugin</artifactId>
-       <version>2.12.4</version>
-       <configuration>
-        <argLine>-javaagent:D:\01_cover\cover4.0-agent\bin\cover-javalib-agent.jar</argLine>
-       </configuration>
-       <dependencies>
-        <dependency>
-        <groupId>org.apache.maven.surefire</groupId>
-        <artifactId>surefire-junit4</artifactId>
-        <version>2.12.4</version>
-        
-        </dependency>
-       </dependencies>
-      </plugin>
+      </plugin>  
     </plugins>
   </build>
   <dependencies>
